@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        12.4.99
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA CUDA Profiling Tools Interface (CUPTI) library
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -34,6 +34,7 @@ Conflicts:      %{name}-devel-%{major_package_version} < %{?epoch:%{epoch}:}%{ve
 This package provides development files for the NVIDIA CUDA Profiling Tools
 Interface (CUPTI) library.
 
+%ifarch x86_64
 %package static
 Summary:        Static libraries for NVIDIA CUDA Profiling Tools Interface (CUPTI)
 Requires:       %{name}-devel%{_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
@@ -41,6 +42,7 @@ Requires:       %{name}-devel%{_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %description static
 This package contains static libraries for NVIDIA CUDA Profiling Tools Interface
 (CUPTI).
+%endif
 
 %prep
 %ifarch x86_64
@@ -72,11 +74,16 @@ cp -fr lib/* %{buildroot}%{_libdir}/
 %{_libdir}/libnvperf_host.so
 %{_libdir}/libnvperf_target.so
 
+%ifarch x86_64
 %files static
 %{_libdir}/libcupti_static.a
 %{_libdir}/libnvperf_host_static.a
+%endif
 
 %changelog
+* Mon Mar 18 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-2
+- No static libraries in aarch64.
+
 * Tue Mar 12 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-1
 - Update to 12.4.99.
 - Drop ppc64le.
