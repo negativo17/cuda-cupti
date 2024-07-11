@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        12.4.99
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        NVIDIA CUDA Profiling Tools Interface (CUPTI) library
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -81,6 +81,9 @@ cp -fr lib/* %{buildroot}%{_libdir}/
 %endif
 
 %changelog
+* Thu Jul 11 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-1
+- Update to 12.4.99.
+
 * Mon Mar 18 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-2
 - No static libraries in aarch64.
 
