@@ -51,8 +51,6 @@ This package contains static libraries for NVIDIA CUDA Profiling Tools Interface
 %setup -q -T -b 1 -n %{real_name}-linux-sbsa-%{version}-archive
 %endif
 
-%{?ldconfig_scriptlets}
-
 %install
 mkdir -p %{buildroot}%{_includedir}
 mkdir -p %{buildroot}%{_libdir}
