@@ -8,7 +8,7 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        13.0.48
+Version:        13.0.85
 Release:        1%{?dist}
 Summary:        NVIDIA CUDA Profiling Tools Interface (CUPTI) library
 License:        CUDA Toolkit
@@ -77,6 +77,9 @@ cp -fr lib/* %{buildroot}%{_libdir}/
 %endif
 
 %changelog
+* Sun Oct 26 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.85-1
+- Update to 13.0.85.
+
 * Mon Aug 25 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.48-1
 - Update to 13.0.48.
 
